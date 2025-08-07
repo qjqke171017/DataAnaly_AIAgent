@@ -245,12 +245,12 @@ if 'nlp_interface' not in st.session_state:
     # 注意：这是一个示例API密钥，为了演示目的使用
     # 实际使用时请配置有效的API密钥
     # api_key = st.secrets["zhipuai_api_key"] if "zhipuai_api_key" in st.secrets else "请在此处填入有效的API密钥"
-    api_key = "205218f94d11b30a98b9c99e9c42e845.T5tKDlsCpvCjAUZc"
+    api_key = "sk-f8e7b7575527489eb8a4fa42e11dc1bb"
     st.session_state.nlp_interface = NLPInterface(api_key)
     # 默认使用智谱模型
-    # st.session_state.nlp_interface.model = "azureopenai"
-    st.session_state.nlp_interface.api_url = "https://open.bigmodel.cn/api/paas/v4/chat/completions"
-    st.session_state.nlp_interface.api_key = "205218f94d11b30a98b9c99e9c42e845.T5tKDlsCpvCjAUZc"
+    # st.session_state.nlp_interface.model = "deepseek"
+    st.session_state.nlp_interface.api_url = "https://api.deepseek.com/v1"
+    st.session_state.nlp_interface.api_key = "sk-f8e7b7575527489eb8a4fa42e11dc1bb"
 
 if 'chat_messages' not in st.session_state:
     st.session_state.chat_messages = []
@@ -297,7 +297,7 @@ with st.sidebar:
         st.session_state.is_first_model_load = True
     
     # 直接添加模型选择下拉框
-    current_model = st.session_state.nlp_interface.model if hasattr(st.session_state.nlp_interface, 'model') else "azureopenai"
+    current_model = st.session_state.nlp_interface.model if hasattr(st.session_state.nlp_interface, 'model') else "deepseek"
 
     new_model = st.selectbox(
         "选择模型",
